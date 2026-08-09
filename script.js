@@ -18,11 +18,8 @@ navLinks.forEach(list => {
 // FAQ accordion
 document.querySelectorAll('.accordion-item').forEach(item => {
   const trigger = item.querySelector('.accordion-trigger');
-  trigger.addEventListener('click', () => {
-    const wasOpen = item.classList.contains('is-open');
-    item.closest('.accordion').querySelectorAll('.accordion-item').forEach(i => i.classList.remove('is-open'));
-    if (!wasOpen) item.classList.add('is-open');
-  });
+  // Design shows every answer expanded, so toggle each independently.
+  trigger.addEventListener('click', () => item.classList.toggle('is-open'));
 });
 
 // Testimonial carousel
