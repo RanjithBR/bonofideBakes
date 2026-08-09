@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 299.68 102.79">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: -.03em;
+      }
+
+      .cls-2 {
+        font-family: BookAntiqua-Bold, 'Book Antiqua';
+        font-size: 29.13px;
+        font-weight: 700;
+      }
+
+      .cls-2, .cls-3 {
+        fill: #254569;
+      }
+
+      .cls-4 {
+        letter-spacing: -.02em;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <text class="cls-2" transform="translate(19.84 33.67)"><tspan class="cls-4"><tspan x="0" y="0">Real Butter</tspan></tspan><tspan class="cls-1"><tspan x="0" y="29">Because butter should</tspan></tspan><tspan class="cls-4"><tspan x="0" y="58">taste like butter.</tspan></tspan></text>
+      <rect class="cls-3" width="8.19" height="102.79"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1916.16 392.47">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        isolation: isolate;
+      }
+
+      .cls-3 {
+        mix-blend-mode: multiply;
+      }
+
+      .cls-4 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-1" x="1617.23" y="63.69" width="272.97" height="281.57" transform="translate(3507.4352 408.9447) rotate(-180)"/>
+    </clipPath>
+  </defs>
+  <g class="cls-2">
+    <g id="Layer_2" data-name="Layer 2">
+      <g id="Layer_1-2" data-name="Layer 1">
+        <g class="cls-3">
+          <g class="cls-4">
+            <image width="8300" height="1700" transform="translate(1916.1571) scale(-.2309 .2309)" xlink:href="C:\Users\Shivam\Downloads\shutterstock_2791ed5b33af.jpg"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

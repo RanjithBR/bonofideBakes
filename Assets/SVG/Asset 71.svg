@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 102.29 241.78">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: -.03em;
+      }
+
+      .cls-2 {
+        letter-spacing: -.01em;
+      }
+
+      .cls-3 {
+        letter-spacing: -.01em;
+      }
+
+      .cls-4 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-5 {
+        letter-spacing: 0em;
+      }
+
+      .cls-6 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-7 {
+        letter-spacing: -.06em;
+      }
+
+      .cls-8 {
+        letter-spacing: 0em;
+      }
+
+      .cls-9 {
+        fill: #bf9f6d;
+        font-family: Montserrat-Medium, Montserrat;
+        font-size: 18.46px;
+        font-weight: 500;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <text class="cls-9" transform="translate(.02 52.28)"><tspan x="0" y="0">About</tspan></text>
+      <text class="cls-9" transform="translate(.02 15.69)"><tspan x="0" y="0">Home</tspan></text>
+      <text class="cls-9" transform="translate(.02 126.17)"><tspan class="cls-7" x="0" y="0">V</tspan><tspan x="12.13" y="0">alues</tspan></text>
+      <text class="cls-9" transform="translate(0 89.23)"><tspan x="0" y="0">W</tspan><tspan class="cls-2" x="20.78" y="0">h</tspan><tspan x="33.17" y="0">y U</tspan><tspan class="cls-4" x="63.05" y="0">s</tspan><tspan x="71.98" y="0">?</tspan></text>
+      <text class="cls-9" transform="translate(0 163.11)"><tspan class="cls-1" x="0" y="0">F</tspan><tspan class="cls-8" x="11.13" y="0">A</tspan><tspan class="cls-5" x="24.46" y="0">Qs</tspan></text>
+      <text class="cls-9" transform="translate(0 237)"><tspan x="0" y="0">O</tspan><tspan class="cls-3" x="15.5" y="0">r</tspan><tspan x="22.85" y="0">der N</tspan><tspan class="cls-6" x="74.25" y="0">o</tspan><tspan x="85.69" y="0">w</tspan></text>
+    </g>
+  </g>
+</svg>

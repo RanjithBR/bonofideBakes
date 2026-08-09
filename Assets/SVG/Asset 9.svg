@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 79.8 83.98">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #bf9f6d;
+      }
+
+      .cls-2 {
+        font-family: Montserrat-Bold, Montserrat;
+        font-size: 10.76px;
+        font-weight: 700;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <path class="cls-1" d="M71.15,42.81c.26,1.67.4,3.32.4,4.94,0,18.5-15.05,33.55-33.55,33.55S4.45,66.25,4.45,47.75c0-2.05.21-4.08.59-6.09-.94-.16-1.8-.43-2.58-.8-.44,2.27-.69,4.57-.69,6.89,0,19.98,16.25,36.23,36.23,36.23s36.23-16.26,36.23-36.23c0-1.81-.15-3.61-.42-5.4-.81.26-1.7.41-2.66.46Z"/>
+      <text class="cls-2" transform="translate(8.61 36.15) rotate(-61.69)"><tspan x="0" y="0">R</tspan></text>
+      <text class="cls-2" transform="translate(12.36 29.55) rotate(-51.56)"><tspan x="0" y="0">I</tspan></text>
+      <text class="cls-2" transform="translate(14.2 26.88) rotate(-41.54)"><tspan x="0" y="0">C</tspan></text>
+      <text class="cls-2" transform="translate(19.75 21.83) rotate(-27)"><tspan x="0" y="0">H</tspan></text>
+      <text class="cls-2" transform="translate(27.3 18.23) rotate(-16.71)"><tspan x="0" y="0"> </tspan></text>
+      <text class="cls-2" transform="translate(30.04 17.39) rotate(-10.91)"><tspan x="0" y="0">I</tspan></text>
+      <text class="cls-2" transform="translate(33.16 16.51)"><tspan x="0" y="0">N</tspan></text>
+      <text class="cls-2" transform="translate(41.52 16.72) rotate(10.2)"><tspan x="0" y="0"> </tspan></text>
+      <text class="cls-2" transform="translate(44.31 17.05) rotate(18.85)"><tspan x="0" y="0">F</tspan></text>
+      <text class="cls-2" transform="translate(50.52 19.29) rotate(28.04)"><tspan x="0" y="0">I</tspan></text>
+      <text class="cls-2" transform="translate(53.49 20.6) rotate(38.44)"><tspan x="0" y="0">B</tspan></text>
+      <text class="cls-2" transform="translate(59.62 25.43) rotate(52.57)"><tspan x="0" y="0">R</tspan></text>
+      <text class="cls-2" transform="translate(64.2 31.41) rotate(65.82)"><tspan x="0" y="0">E</tspan></text>
+      <path class="cls-1" d="M45.45,60.54c-5.73,2.9-12.45,3.14-18.75,2.6-1.6.69-3.16,1.26-4.84,1.65-.73.17-1.41-.3-1.56-.99s.32-1.4,1.08-1.52c1.37-.34,2.65-.79,3.98-1.36.03-3.38.52-6.7,1.53-9.98-3.72-3.74-4.73-8.62-4.07-13.78.4-2.89,1.23-5.63,2.48-8.26.3-.63.97-.88,1.62-.67,4.63,1.36,8.99,3.58,12.24,7.28,4.57-2.5,9.64-3.61,14.81-3.91.62.05,1.08.46,1.22,1.08.84,3.78,1.11,7.63.71,11.5-.73,7.04-4.03,13.11-10.45,16.36ZM29.68,37.97c-.23-.7.31-1.37.88-1.52.68-.19,1.35.17,1.58.84.34.91.67,1.76,1.11,2.72,1.14-1.15,2.32-2.17,3.7-3.11-2.64-2.86-6.07-4.68-9.79-5.89-2.26,5.48-3.24,12.36.72,17.2.98-2.26,2.09-4.22,3.52-6.07-.65-1.39-1.25-2.69-1.72-4.16ZM44.82,47.13c-3.39,5.48-8.09,10.22-13.59,13.66,2.42.1,4.64-.12,6.91-.5,2.2-.42,4.27-1.04,6.24-2.07,8.88-4.57,10.2-14.89,8.54-23.96-4.55.4-8.89,1.46-12.82,3.69-5.05,2.87-8.5,7.28-10.44,12.73-.03.27-.12.48-.25.72-.84,2.66-1.35,5.36-1.46,8.28,6.11-3.26,11-8.08,14.67-13.84.39-.61,1.16-.75,1.73-.41.53.31.85,1.08.47,1.7Z"/>
+    </g>
+  </g>
+</svg>

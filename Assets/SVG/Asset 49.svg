@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 369.57 77.61">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #254569;
+        stroke-miterlimit: 10;
+        stroke-width: 5px;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-2, .cls-3 {
+        font-family: Montserrat-SemiBold, Montserrat;
+        font-size: 32.85px;
+        font-weight: 600;
+      }
+
+      .cls-4 {
+        letter-spacing: -.05em;
+      }
+
+      .cls-5 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-6, .cls-3 {
+        fill: #254569;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <rect class="cls-1" x="2.47" y="10.5" width="144.37" height="59.59" rx="29.79" ry="29.79" transform="translate(1.57 -2.78) rotate(2.16)"/>
+      <text class="cls-3" transform="translate(27.19 50.6) rotate(2.16)"><tspan x="0" y="0">What</tspan></text>
+      <rect class="cls-1" x="222.94" y="11" width="144.37" height="59.59" rx="29.79" ry="29.79" transform="translate(-2.67 31.67) rotate(-6.12)"/>
+      <text class="cls-3" transform="translate(252.61 57.08) rotate(-6.12)"><tspan x="0" y="0">Ba</tspan><tspan class="cls-5" x="44.94" y="0">k</tspan><tspan x="65.11" y="0">e</tspan></text>
+      <rect class="cls-6" x="130.54" y="2.78" width="102.79" height="59.59" rx="29.79" ry="29.79" transform="translate(5.69 -23.09) rotate(7.38)"/>
+      <text class="cls-2" transform="translate(155.05 41.27) rotate(7.38)"><tspan class="cls-4" x="0" y="0">W</tspan><tspan x="35.77" y="0">e</tspan></text>
+    </g>
+  </g>
+</svg>

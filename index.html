@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bonafide Bakes | Honest Baking. Small Batches. 100% Veg.</title>
+<meta name="description" content="Made for people who read the ingredients. Bonafide Bakes crafts honest, small-batch baked goods with real butter, no palm oil and no shortcuts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Reusable brand mark (hidden, referenced via <use>) -->
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="brand-mark" viewBox="0 0 140 120">
+    <g fill="none" stroke="currentColor" stroke-width="6.5">
+      <circle cx="38" cy="66" r="26"/>
+      <circle cx="56" cy="82" r="26"/>
+      <circle cx="84" cy="82" r="26"/>
+      <circle cx="102" cy="66" r="26"/>
+    </g>
+    <g fill="currentColor">
+      <path d="M70 8 C74 16 74 24 70 30 C66 24 66 16 70 8 Z"/>
+      <path d="M70 14 C78 16 84 21 87 28 C79 27 73 22 70 14 Z"/>
+      <path d="M70 14 C62 16 56 21 53 28 C61 27 67 22 70 14 Z"/>
+    </g>
+  </symbol>
+</svg>
+
+<!-- Top announcement bar -->
+<div class="topbar">
+  <p>Made for People Who Read the Ingredients. &nbsp;|&nbsp; Order Fresh Today</p>
+</div>
+
+<!-- Header / Nav -->
+<header class="site-header">
+  <nav class="navbar">
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links nav-links--left">
+      <li><a href="#about">About</a></li>
+      <li><a href="#why-us">Why Us?</a></li>
+      <li><a href="#values">Values</a></li>
+    </ul>
+    <a href="#top" class="logo">
+      <span class="logo-bonafide">Bona<span class="logo-fi">fi</span>de</span>
+      <span class="logo-bakes">BAKES</span>
+    </a>
+    <ul class="nav-links nav-links--right">
+      <li><a href="#faqs">FAQs</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a class="nav-cta" href="https://wa.me/919900955225" target="_blank" rel="noopener">Order Now</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-ghost" aria-hidden="true">
+      <span>HONEST BAKING</span>
+      <span>SMALL BATCHES</span>
+      <span>100% VEG</span>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-image-wrap">
+        <img src="Asset/hero-jar-nuts.jpg" alt="Bonafide Bakes Nut &amp; Seed Choco Butter jar surrounded by cashews and almonds" class="hero-image">
+        <span class="fssai-badge" title="FSSAI Certified">
+          <svg viewBox="0 0 24 24" width="26" height="26"><rect x="1" y="1" width="22" height="22" rx="3" fill="none" stroke="#2fa84f" stroke-width="2"/><circle cx="12" cy="12" r="5.5" fill="#2fa84f"/></svg>
+        </span>
+      </div>
+
+      <div class="hero-cta">
+        <p class="hero-tagline">Baked with love. served with joy</p>
+        <a href="https://wa.me/919900955225" target="_blank" rel="noopener" class="btn btn--navy"><span class="dot dot--white"></span>Order Now</a>
+      </div>
+    </div>
+
+    <div class="icon-strip">
+      <div class="icon-strip-badge">
+        <svg viewBox="0 0 140 120" width="56" height="56"><use href="#brand-mark" color="#fff"/></svg>
+      </div>
+      <img src="Asset/granola-bag.jpg" alt="Bonafide Bakes Signature Sourdough Granola" class="icon-strip-photo">
+
+      <ul class="feature-icons">
+        <li>
+          <span class="feature-circle"><svg viewBox="0 0 48 48" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 20h16v18a3 3 0 0 1-3 3H19a3 3 0 0 1-3-3V20Z"/><path d="M20 20v-4a4 4 0 0 1 8 0v4"/><path d="M20 27h8M20 33h8"/></svg></span>
+          <span class="feature-label">Natural Honey</span>
+        </li>
+        <li>
+          <span class="feature-circle"><svg viewBox="0 0 48 48" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><rect x="12" y="16" width="24" height="16" rx="2"/><path d="M12 24h24M20 16v16M28 16v16"/></svg></span>
+          <span class="feature-label">Belgian Chocolate</span>
+        </li>
+        <li>
+          <span class="feature-circle"><svg viewBox="0 0 48 48" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 20a10 10 0 0 0 20 0Z"/><path d="M14 20h20l-2 12H16Z"/><path d="M24 12v4"/></svg></span>
+          <span class="feature-label">Small Batch</span>
+        </li>
+        <li>
+          <span class="feature-circle"><svg viewBox="0 0 48 48" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><rect x="10" y="14" width="28" height="22" rx="2"/><path d="M10 22h28"/><circle cx="16" cy="18" r="1.4" fill="currentColor" stroke="none"/><circle cx="21" cy="18" r="1.4" fill="currentColor" stroke="none"/></svg></span>
+          <span class="feature-label">Baked Not Fried</span>
+        </li>
+        <li>
+          <span class="feature-circle"><svg viewBox="0 0 48 48" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="24" cy="24" rx="8" ry="14"/><path d="M14 24h20"/><path d="M12 12l24 24"/></svg></span>
+          <span class="feature-label">No Palm Oil</span>
+        </li>
+        <li>
+          <span class="feature-circle"><svg viewBox="0 0 48 48" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 20c0-4 4-6 10-6s10 2 10 6-4 16-10 16-10-12-10-16Z"/><path d="M14 20h20"/></svg></span>
+          <span class="feature-label">Premium Butter</span>
+        </li>
+        <li>
+          <span class="feature-circle"><svg viewBox="0 0 48 48" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><path d="M24 10v10M24 10c3 2 3 6 0 8m0-8c-3 2-3 6 0 8"/><path d="M24 20v18M18 24c0 8 2 14 6 14s6-6 6-14"/></svg></span>
+          <span class="feature-label">100% Whole Wheat</span>
+        </li>
+        <li>
+          <span class="feature-circle"><svg viewBox="0 0 48 48" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><path d="M24 12c8 4 10 12 6 20-3 6-9 6-12 2-3 4-9 2-8-4 1-6 6-10 14-18Z"/></svg></span>
+          <span class="feature-label">Rich In Fibre</span>
+        </li>
+        <li>
+          <span class="feature-circle"><svg viewBox="0 0 48 48" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><path d="M24 10c6 4 10 10 10 16a10 10 0 0 1-20 0c0-6 4-12 10-16Z"/><circle cx="24" cy="26" r="3"/></svg></span>
+          <span class="feature-label">Made With Olive Oil</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="about-inner">
+      <img src="Asset/granola-bag.jpg" alt="Bowl of sourdough granola" class="about-image">
+      <div class="about-text">
+        <p>Bonafide Bakes began with a simple belief &ndash; that everyday snacking deserve better ingredients, thoughtful recipes and honest baking.</p>
+        <a href="#why-us" class="btn btn--tan btn--tilted"><span class="dot dot--white"></span>About Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Purpose -->
+  <section class="purpose" id="why-us">
+    <p class="vertical-label vertical-label--left">What Makes Us Bonafide?</p>
+
+    <div class="purpose-heading">
+      <h2>our purpose<br>is to bring <svg viewBox="0 0 140 120" width="38" height="34" class="inline-mark"><use href="#brand-mark"/></svg></h2>
+      <p class="purpose-sub">Made with real ingredients, baked fresh<br>in small batches, and shared with the people<br>who matter most.</p>
+      <h2 class="purpose-heading-2">the joy of honest<br>baking into every home.</h2>
+      <svg class="wavy-underline" viewBox="0 0 480 30" width="320" height="20"><path d="M2 20 Q 120 -4 240 18 T 478 12" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
+    </div>
+
+    <div class="gallery-row">
+      <div class="gallery-col gallery-col--tall">
+        <img src="Asset/bread-loaf.jpg" alt="Freshly sliced sourdough bread loaf" class="gallery-img">
+        <a href="https://wa.me/919900955225" target="_blank" rel="noopener" class="btn btn--tan gallery-cta"><span class="dot dot--white"></span>Order Now</a>
+        <p class="gallery-caption">HONEST INGREDIENTS</p>
+      </div>
+      <div class="gallery-col">
+        <div class="gallery-code">
+          <img src="Asset/crumble-tray.jpg" alt="Freshly baked crumble tray" class="gallery-img">
+          <p class="vertical-label vertical-label--right">THE BONAFIDE CODE.</p>
+          <span class="fssai-badge fssai-badge--static">
+            <svg viewBox="0 0 24 24" width="24" height="24"><rect x="1" y="1" width="22" height="22" rx="3" fill="none" stroke="#2fa84f" stroke-width="2"/><circle cx="12" cy="12" r="5.5" fill="#2fa84f"/></svg>
+          </span>
+        </div>
+        <img src="Asset/brownie-plate.jpg" alt="Plate of freshly baked brownies" class="gallery-img">
+        <p class="gallery-caption">OUR GREEN FLAGS.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Thoughtful ingredients -->
+  <section class="ingredients" id="values">
+    <p class="vertical-label vertical-label--left">Things We Don&rsquo;t Compromise On.</p>
+
+    <h2 class="ingredients-heading">
+      THOUGHTFUL INGREDIENTS. HONEST RECIPES. FRESHLY BAKED.<br>
+      <strong>EVERY CHOICE WE MAKE</strong> IS GUIDED BY ONE SIMPLE BELIEF : GOOD FOOD SHOULD NEVER NEED SHORTCUTS.
+    </h2>
+
+    <div class="ingredients-row">
+      <div class="ingredients-left">
+        <div class="ingredients-swatches">
+          <img src="Asset/blondie-strip.jpg" alt="Blondie bar close up">
+          <img src="Asset/brownie-strip.jpg" alt="Brownie bar close up">
+        </div>
+        <p class="ingredients-note">When you open a Bonafide box, you&rsquo;re tasting baking made the way it should be.</p>
+        <a href="https://wa.me/919900955225" target="_blank" rel="noopener" class="btn btn--tan"><span class="dot dot--white"></span>Order Now</a>
+      </div>
+
+      <div class="ingredients-right">
+        <p>We believe exceptional baking begins with exceptional ingredients. That&rsquo;s why we bake in small batches using real butter, premium ingredients, and recipes crafted from scratch. We don&rsquo;t rush the process or follow shortcuts &ndash; because quality isn&rsquo;t something you add at the end; it&rsquo;s something you choose from the very beginning.</p>
+        <a href="#products" class="link-underline">Small Batch. Big Difference.</a>
+        <div class="ingredients-photos">
+          <img src="Asset/cookies-stack.jpg" alt="Stack of freshly baked cookies">
+          <img src="Asset/biscotti-bowl.jpg" alt="Bowl of almond biscotti">
+        </div>
+      </div>
+    </div>
+
+    <!-- WhatsApp CTA -->
+    <div class="whatsapp-banner">
+      <div class="whatsapp-icon">
+        <svg viewBox="0 0 32 32" width="42" height="42"><path fill="#25D366" d="M16 3C9 3 3.3 8.6 3.3 15.5c0 2.6.8 5 2.1 7L3 29l6.7-2.3c1.9 1 4.1 1.6 6.3 1.6 7 0 12.7-5.6 12.7-12.5S23 3 16 3Z"/><path fill="#fff" d="M22.4 19.3c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.7.1s-.8 1-1 1.3-.3.2-.6.1a9 9 0 0 1-2.6-1.6 9.7 9.7 0 0 1-1.8-2.3c-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.2-.2.2-.3.3-.5s0-.4 0-.5c-.1-.2-.7-1.8-1-2.4-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.2 3.5 5.4 4.7.8.3 1.4.5 1.8.6.8.3 1.5.2 2-.1.6-.4 1.9-1.1 2.2-2.2.3-1 .3-1.1.2-1.3Z"/></svg>
+      </div>
+      <p class="whatsapp-text">Join Our <strong>Whatsapp</strong> <strong>Community</strong> for orders and exclusive updates</p>
+      <a href="https://wa.me/919900955225" target="_blank" rel="noopener" class="btn btn--navy"><span class="dot dot--green"></span>Join Now</a>
+    </div>
+  </section>
+
+  <!-- Ticker -->
+  <div class="ticker">
+    <div class="ticker-track">
+      <span>Not To Flex, But&hellip; &nbsp; Real Butter &bull; Premium Ingredients &bull; No Palm Oil &bull; Freshly Baked &bull; No Shortcuts &nbsp;&nbsp;</span>
+      <span>Not To Flex, But&hellip; &nbsp; Real Butter &bull; Premium Ingredients &bull; No Palm Oil &bull; Freshly Baked &bull; No Shortcuts &nbsp;&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- What We Bake -->
+  <section class="products" id="products">
+    <div class="products-heading-pill">
+      <span>What</span><span class="pill-highlight">We</span><span>Bake</span>
+    </div>
+
+    <img src="Asset/oats-pile.jpg" alt="Pile of rolled oats" class="products-deco products-deco--left">
+    <img src="Asset/millet-seeds.jpg" alt="Pile of millet seeds" class="products-deco products-deco--right">
+
+    <ul class="products-grid">
+      <li class="pill-card"><span class="pill-icon">&#127807;</span>Millet<br>Brownie</li>
+      <li class="pill-card"><span class="pill-icon">&#127807;</span>Nut &amp; Seed<br>Choco Butter</li>
+      <li class="pill-card"><span class="pill-icon">&#127807;</span>Signature<br>Granola</li>
+      <li class="pill-card"><span class="pill-icon">&#127807;</span>Sourdough<br>Bread</li>
+      <li class="pill-card"><span class="pill-icon">&#127807;</span>Crumble<br>Cake</li>
+      <li class="pill-card"><span class="pill-icon">&#127807;</span>Classic<br>Brownie</li>
+      <li class="pill-card"><span class="pill-icon">&#127807;</span>Oatmeal<br>Cookies</li>
+      <li class="pill-card"><span class="pill-icon">&#127807;</span>Almond<br>Biscotti</li>
+      <li class="pill-card"><span class="pill-icon">&#127807;</span>Butter<br>Tea Cake</li>
+      <li class="pill-card"><span class="pill-icon">&#127807;</span>Choco Chip<br>Blondie</li>
+      <li class="pill-card"><span class="pill-icon">&#127807;</span>Ragi<br>Cookies</li>
+    </ul>
+
+    <p class="products-footer-text">EVERY PRODUCT YOU SEE HERE WAS BAKED IN OUR KITCHEN.<br><strong>NO STOCK PHOTOGRAPHY.</strong> JUST HONEST BAKING.</p>
+    <a href="https://wa.me/919900955225" target="_blank" rel="noopener" class="btn btn--navy"><span class="dot dot--white"></span>Order Now</a>
+
+    <!-- Testimonial -->
+    <div class="testimonial-wrap">
+      <img src="Asset/brownie-piece-1.jpg" alt="" class="testimonial-deco testimonial-deco--left" aria-hidden="true">
+      <img src="Asset/brownie-piece-3.jpg" alt="" class="testimonial-deco testimonial-deco--right" aria-hidden="true">
+
+      <div class="testimonial-card">
+        <button class="t-arrow t-arrow--prev" aria-label="Previous testimonial">&#10094;</button>
+        <button class="t-arrow t-arrow--next" aria-label="Next testimonial">&#10095;</button>
+        <div class="t-slides">
+          <div class="t-slide is-active">
+            <h3>Finally found cookies<br>that actually taste homemade.</h3>
+            <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="t-author">&ndash; shivam thakur</p>
+          </div>
+          <div class="t-slide">
+            <h3>The granola tastes like<br>my grandmother made it.</h3>
+            <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="t-author">&ndash; ananya rao</p>
+          </div>
+          <div class="t-slide">
+            <h3>No palm oil, no nonsense &ndash;<br>just real honest baking.</h3>
+            <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="t-author">&ndash; kabir mehta</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Real Butter -->
+  <section class="real-butter">
+    <div class="real-butter-inner">
+      <div class="real-butter-image-wrap">
+        <img src="Asset/jar-bw-stack.jpg" alt="Bonafide Bakes Nut and Seed Choco Butter jars" class="real-butter-image">
+        <span class="brand-badge">
+          <svg viewBox="0 0 140 120" width="30" height="26"><use href="#brand-mark"/></svg>
+        </span>
+      </div>
+      <div class="real-butter-text">
+        <span class="rb-rule"></span>
+        <h3>Real Butter<br>Because butter should<br>taste like butter.</h3>
+      </div>
+    </div>
+    <img src="Asset/hero-jar-nuts.jpg" alt="Nut and seed choco butter jar with cashews and almonds" class="real-butter-nuts">
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faqs">
+    <div class="faq-head">
+      <h2>QUESTIONS FRESH OUT OF THE OVEN.</h2>
+      <a href="#faqs" class="btn btn--tan"><span class="dot dot--white"></span>FAQs</a>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-item is-open">
+        <button class="accordion-trigger">
+          <span><span class="accordion-num">1.</span> Are Tea Cake Made up of Tea?</span>
+          <span class="accordion-plus">+</span>
+        </button>
+        <div class="accordion-panel">
+          <p>Absolutely No, Tea Cake is tea time cake with multiple flavour like ragi, elaichi, choco chip butter cake etc&hellip;</p>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger">
+          <span><span class="accordion-num">2.</span> Why don&rsquo;t your products last for months like supermarket snacks?</span>
+          <span class="accordion-plus">+</span>
+        </button>
+        <div class="accordion-panel">
+          <p>Because they&rsquo;re made like real food should be. We choose freshness over shelf life, real butter over substitutes, and quality over convenience. Good baking isn&rsquo;t supposed to sit on a shelf forever.</p>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger">
+          <span><span class="accordion-num">3.</span> Is everything really 100% vegetarian?</span>
+          <span class="accordion-plus">+</span>
+        </button>
+        <div class="accordion-panel">
+          <p>Absolutely. Every product that leaves our kitchen is completely vegetarian.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-buttons">
+      <a href="https://wa.me/919900955225" target="_blank" rel="noopener" class="btn btn--navy"><span class="dot dot--green"></span>Whatsapp Community</a>
+      <a href="https://wa.me/919900955225" target="_blank" rel="noopener" class="btn btn--navy btn--ringed"><span class="dot dot--white"></span>Order Now</a>
+      <a href="https://instagram.com/bonafidebakes.co" target="_blank" rel="noopener" class="btn btn--navy"><span class="dot dot--pink"></span>Follow Us</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <svg viewBox="0 0 140 120" width="70" height="60" class="footer-mark"><use href="#brand-mark"/></svg>
+      <p class="footer-wordmark">Bonafide<br><span>BAKES</span></p>
+      <p class="footer-address"><strong>Address :</strong> Bonafide Bakes<br>205, Shrivenn&rsquo;s Gokulam Apartments,<br>Hagadur, Whitefield, Bangalore 560066,<br>Karnataka</p>
+    </div>
+
+    <ul class="footer-links">
+      <li><a href="#top">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#why-us">Why Us?</a></li>
+      <li><a href="#values">Values</a></li>
+      <li><a href="#faqs">FAQs</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="https://wa.me/919900955225" target="_blank" rel="noopener">Order Now</a></li>
+    </ul>
+
+    <div class="footer-contact">
+      <p class="fssai-lic"><em>fssai</em> Lic No: 21225188000971</p>
+      <hr>
+      <p><a href="https://instagram.com/bonafidebakes.co" target="_blank" rel="noopener">@bonafidebakes.co</a></p>
+      <p><a href="mailto:bonafidebakes.co@gmail.com">bonafidebakes.co@gmail.com</a></p>
+      <p><a href="tel:+919900955225">+91 9900955225</a></p>
+    </div>
+  </div>
+  <div class="footer-bottom"></div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84.68 20.47">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-2 {
+        letter-spacing: -.01em;
+      }
+
+      .cls-3 {
+        letter-spacing: 0em;
+      }
+
+      .cls-4 {
+        font-family: Montserrat-Medium, Montserrat;
+        font-size: 18.46px;
+        font-weight: 500;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <text class="cls-4" transform="translate(0 15.69)"><tspan class="cls-1" x="0" y="0">P</tspan><tspan class="cls-2" x="12.98" y="0">r</tspan><tspan x="20.32" y="0">odu</tspan><tspan class="cls-3" x="57.12" y="0">c</tspan><tspan x="67.79" y="0">ts</tspan></text>
+  </g>
+</svg>
