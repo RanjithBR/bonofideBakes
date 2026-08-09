@@ -22,6 +22,57 @@ document.querySelectorAll('.accordion-item').forEach(item => {
   trigger.addEventListener('click', () => item.classList.toggle('is-open'));
 });
 
+// Feature-badge marquee.
+// Repeats each row until one "loop unit" is at least as wide as its
+// viewport, then duplicates that unit so translating by exactly one unit
+// lands back on an identical frame — i.e. no visible seam or gap.
+const BADGE_SPEED = 34; // px per second
+
+function buildBadgeMarquee(row) {
+  const viewport = row.parentElement;
+  const originals = [...row.children];
+  if (!originals.length) return;
+
+  row.style.animation = 'none';           // measure unscaled
+  row.querySelectorAll('[data-clone]').forEach(n => n.remove());
+
+  const setWidth = [...row.children].reduce((w, el) => w + el.offsetWidth, 0);
+  if (!setWidth) return;
+
+  const viewportWidth = viewport.offsetWidth;
+  const repeats = Math.max(1, Math.ceil(viewportWidth / setWidth));
+
+  const addCopy = () => originals.forEach(el => {
+    const c = el.cloneNode(true);
+    c.setAttribute('data-clone', '');
+    c.setAttribute('aria-hidden', 'true');
+    c.querySelectorAll('img').forEach(i => i.alt = '');
+    row.appendChild(c);
+  });
+
+  for (let i = 1; i < repeats; i++) addCopy();   // finish the first unit
+  for (let i = 0; i < repeats; i++) addCopy();   // second, identical unit
+
+  const shift = setWidth * repeats;
+  row.style.setProperty('--shift', shift + 'px');
+  row.style.setProperty('--dur', (shift / BADGE_SPEED) + 's');
+  row.style.animation = '';
+}
+
+const badgeRows = document.querySelectorAll('.feature-row');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+function initBadgeMarquees() {
+  if (reduceMotion.matches) return;
+  badgeRows.forEach(buildBadgeMarquee);
+}
+// Images must be measured at their real size, so wait for load.
+window.addEventListener('load', initBadgeMarquees);
+let badgeResizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(badgeResizeTimer);
+  badgeResizeTimer = setTimeout(initBadgeMarquees, 200);
+});
+
 // Testimonial carousel — auto-advances every 4s, arrows still work
 const AUTOPLAY_MS = 4000;
 const slides = document.querySelectorAll('.t-slide');
