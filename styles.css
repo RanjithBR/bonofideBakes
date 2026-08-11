@@ -1,4 +1,20 @@
 /* ============================================================
+   Self-hosted design fonts (Fonts/) - exact metrics, so none of the
+   tracking compensation the web substitutes needed.
+   ============================================================ */
+@font-face{font-family:'Bernard MT Condensed';src:url('Fonts/BERNHC.TTF') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Book Antiqua';src:url('Fonts/BKANT.TTF') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Book Antiqua';src:url('Fonts/ANTQUAB.TTF') format('truetype');font-weight:700;font-display:swap}
+@font-face{font-family:'Montserrat';src:url('Fonts/Montserrat-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Montserrat';src:url('Fonts/Montserrat-Medium.ttf') format('truetype');font-weight:500;font-display:swap}
+@font-face{font-family:'Montserrat';src:url('Fonts/Montserrat-SemiBold.ttf') format('truetype');font-weight:600;font-display:swap}
+@font-face{font-family:'Montserrat';src:url('Fonts/Montserrat-Bold.ttf') format('truetype');font-weight:700;font-display:swap}
+@font-face{font-family:'Poppins';src:url('Fonts/Poppins-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Poppins';src:url('Fonts/Poppins-Medium.ttf') format('truetype');font-weight:500;font-display:swap}
+@font-face{font-family:'Poppins';src:url('Fonts/Poppins-SemiBold.ttf') format('truetype');font-weight:600;font-display:swap}
+@font-face{font-family:'Acumin Variable Concept';src:url('Fonts/Acumin Variable Concept.ttf') format('truetype');font-weight:400;font-display:swap}
+
+/* ============================================================
    Bonafide Bakes
    Type + metrics taken from the source design (1440px artboard):
      sans   = Montserrat            serif  = Book Antiqua
@@ -19,8 +35,8 @@
   --star:#f1c718;
 
   --sans:'Montserrat',-apple-system,BlinkMacSystemFont,sans-serif;
-  --serif:'Book Antiqua',Palatino,'Palatino Linotype','URW Palladio L',Georgia,serif;
-  --display:'Bernard MT Condensed','Alfa Slab One',var(--serif);
+  --serif:'Book Antiqua',Palatino,'Palatino Linotype',Georgia,serif;
+  --display:'Bernard MT Condensed',var(--serif);
   --poppins:'Poppins',var(--sans);
 
   --container:992px;   /* design content width */
@@ -45,6 +61,7 @@ html{ scroll-behavior:smooth; overflow-x:hidden; }
 body{
   margin:0;
   font-family:var(--sans);
+  letter-spacing:-.05em;   /* design tracking on Montserrat */
   color:var(--ink);
   background:var(--white);
   -webkit-font-smoothing:antialiased;
@@ -72,7 +89,17 @@ button{ font-family:inherit; cursor:pointer; }
   transition:transform .2s ease, box-shadow .2s ease;
   border:none;
 }
-.btn:hover{ transform:translateY(-2px); box-shadow:0 8px 20px rgba(0,0,0,.15); }
+.btn{ position:relative; overflow:hidden; }
+.btn::after{                       /* sheen sweep on hover */
+  content:""; position:absolute; inset:0; border-radius:inherit;
+  background:linear-gradient(110deg,transparent 20%,rgba(255,255,255,.35) 50%,transparent 80%);
+  transform:translateX(-120%); transition:transform .6s ease;
+}
+.btn:hover::after{ transform:translateX(120%); }
+.btn:hover{ transform:translateY(-3px); box-shadow:0 12px 26px rgba(36,69,105,.3); }
+.btn:active{ transform:translateY(-1px); box-shadow:0 6px 14px rgba(36,69,105,.25); }
+.btn:focus-visible{ outline:3px solid var(--gold); outline-offset:3px; }
+.btn > *{ position:relative; z-index:1; }
 .btn--navy{ background:var(--navy); color:#fff; }
 .btn--tan{ background:var(--gold); color:#fff; }
 .btn--tilted{ transform:rotate(-6deg); }
@@ -118,7 +145,8 @@ button{ font-family:inherit; cursor:pointer; }
   text-decoration:underline; text-underline-offset:7px;
   color:var(--navy); font-weight:600;
 }
-.logo{ display:flex; flex-direction:column; align-items:center; line-height:1; }
+.logo{ display:block; width:clamp(150px,15.3vw,220px); }
+.logo img{ width:100%; }
 .logo-bonafide{ font-weight:700; font-size:clamp(22px,2.5vw,36px); color:var(--navy); letter-spacing:.3px; }
 .logo-fi{ color:var(--gold); }
 .logo-bakes{ font-weight:600; font-size:clamp(9px,.97vw,14px); letter-spacing:.42em; color:var(--navy); margin-top:5px; }
@@ -131,29 +159,25 @@ button{ font-family:inherit; cursor:pointer; }
 .hero{ position:relative; padding:0 0 52px; text-align:center; overflow:hidden; }
 .hero-ghost{
   position:absolute; top:0; left:0; right:0; bottom:0;
-  display:flex; flex-direction:column; align-items:flex-start;
-  padding-top:1.4vw;
   z-index:0; pointer-events:none; overflow:hidden;
 }
-.hero-ghost span{
-  font-family:var(--display);
-  font-weight:400;
-  font-size:13.8vw;      /* 200px @1440 */
-  line-height:.93;
-  color:var(--cream);
-  white-space:nowrap;
-}
-.hero-ghost span:nth-child(1){ margin-left:4.9vw; }
-.hero-ghost span:nth-child(2){ margin-left:16.9vw; word-spacing:.40em; }
-.hero-ghost span:nth-child(3){ margin-left:4.8vw; word-spacing:2.5em; }
+/* design places these at x70/243/69 and y211/397/583 on a 1440 artboard */
+.ghost{ position:absolute; height:auto; }
+.ghost--1{ left:4.86vw;  top:4.17vw;  width:81.4vw; }
+.ghost--2{ left:16.88vw; top:17.08vw; width:83.75vw; }
+.ghost--3{ left:4.79vw;  top:30vw;    width:86.74vw; }
+
+
+
+
 
 /* No z-index: it would create a stacking context and stop the photo
    blending with the ghost type behind it. */
 .hero-content{ position:relative; max-width:var(--wide); margin:0 auto; padding-top:11.3vw; }
 .hero-image-wrap{ position:relative; display:block; width:100%; max-width:65vw; margin:0 auto; }
 .hero-image{ width:100%; mix-blend-mode:multiply; }  /* drops white studio bg */
-.veg-mark{ position:absolute; top:10.4vw; right:0; }
-.veg-mark--static{ position:absolute; top:auto; right:-14px; bottom:-16px; background:#fff; padding:4px; }
+.veg-mark{ position:absolute; top:2%; right:2%; width:clamp(26px,2.6vw,38px); }
+.veg-mark--static{ position:absolute; top:auto; right:10px; bottom:10px; width:clamp(24px,2.4vw,34px); }
 
 .hero-cta{
   position:relative;
@@ -171,19 +195,24 @@ button{ font-family:inherit; cursor:pointer; }
 }
 .icon-strip-left{ position:relative; min-height:150px; }
 .brand-badge-lg{
+  /* block, not inline: the width must still hold once the badge goes
+     position:static in the stacked layouts below 1080px */
+  display:block;
   position:absolute; top:-52px; left:16px;
   width:148px; aspect-ratio:1; z-index:3;
 }
 .brand-badge-lg img{ width:100%; height:100%; border-radius:50%; }
-/* thin navy ring, offset up-left as in the design */
+/* Thin navy ring: design draws it as a larger 170px circle with the
+   148px gold disc sitting toward its upper-right. */
 .brand-badge-lg::before{
-  content:""; position:absolute; inset:-8px 6px 6px -8px;
+  content:""; position:absolute;
+  inset:-11px -6px -11px -16px;
   border:1.6px solid var(--navy); border-radius:50%;
 }
 /* Badge artwork lifted from the design, presented as a continuous
    marquee. Rows keep the design's 100px badge and overall block height;
    they simply scroll instead of wrapping. */
-.feature-icons{ display:flex; flex-direction:column; gap:10px; width:100%; max-width:500px; min-width:0; }
+.feature-icons{ display:block; width:100%; max-width:500px; min-width:0; }
 .feature-marquee{
   overflow:hidden;
   /* soften the cut at both ends */
@@ -194,13 +223,16 @@ button{ font-family:inherit; cursor:pointer; }
   display:flex; width:max-content;
   animation:badge-marquee var(--dur,18s) linear infinite;
 }
-.feature-row--rev{ animation-direction:reverse; }
+.feature-row{ animation-direction:reverse; }  /* left-to-right travel */
 .feature-marquee:hover .feature-row{ animation-play-state:paused; }
 @keyframes badge-marquee{
   from{ transform:translateX(0); }
   to{ transform:translateX(calc(-1 * var(--shift,0px))); }
 }
-.feature{ width:100px; flex:none; }
+.feature{ width:100px; flex:none; padding:4px; }
+/* blue highlight ring */
+.feature img{ border-radius:50%; border:1.5px solid transparent; transition:border-color .25s ease, transform .25s ease; }
+.feature:hover img{ border-color:var(--navy); transform:scale(1.06); }
 .feature img{ width:100%; height:auto; }
 
 /* No unattended motion when the OS asks for reduced motion */
@@ -235,14 +267,11 @@ button{ font-family:inherit; cursor:pointer; }
 .about-text p{ width:580px; max-width:none; align-self:flex-start; }
 .about-text p{
   font-family:var(--serif);
+  letter-spacing:-.03em;
   color:#fff;
   font-size:var(--fs-about);
   line-height:1.083;
   margin-bottom:36px;
-  /* Substitute serifs set ~7% wider than the PDF's Book Antiqua, so give
-     the copy its design measure plus a touch of tracking to hold the
-     six intended line breaks. */
-  letter-spacing:-.02em;
 }
 .about-text .btn{ margin-left:auto; display:inline-flex; }
 .about-text{ display:flex; flex-direction:column; align-items:flex-end; }
@@ -287,11 +316,9 @@ button{ font-family:inherit; cursor:pointer; }
   font-family:var(--sans); font-weight:400;
   font-size:var(--fs-h2); line-height:1.2;
   text-transform:uppercase; color:var(--ink);
-  /* Design line 2 runs to 1043px - wider than the 992 container.
-     Web Montserrat sets ~8% wider than the PDF's copy, so tighten
-     tracking slightly to preserve the intended 3-line break. */
-  letter-spacing:-.04em;
-  width:min(1090px, 100vw - 48px);
+  /* design line 2 runs to 1043px - wider than the 992 container */
+  width:min(1050px, 100vw - 48px);
+  letter-spacing:-.05em;
 }
 .ingredients-heading strong{ font-weight:600; }
 .ingredients-row{
@@ -327,9 +354,9 @@ button{ font-family:inherit; cursor:pointer; }
 /* ============================================================
    TICKER (61px tall, 26.5px)
    ============================================================ */
-.ticker{ background:var(--gold); overflow:hidden; display:flex; align-items:center; min-height:61px; white-space:nowrap; }
+.ticker{ background:var(--gold); overflow:hidden; display:flex; align-items:center; min-height:78px; white-space:nowrap; }
 .ticker-track{ display:inline-flex; animation:marquee 26s linear infinite; }
-.ticker-track span{ font-size:var(--fs-bar); font-weight:500; color:var(--navy); }
+.ticker-track span{ font-size:clamp(18px,2.36vw,34px); font-weight:600; color:var(--navy); letter-spacing:-.03em; }
 @keyframes marquee{ from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
 /* ============================================================
@@ -341,17 +368,9 @@ button{ font-family:inherit; cursor:pointer; }
 .products-deco--left{ left:-70px; }
 .products-deco--right{ right:-70px; }
 
-.products-heading-pill{
-  position:relative; z-index:1;
-  display:inline-flex; align-items:center; gap:6px;
-  background:#fff; border:2.5px solid var(--navy); border-radius:999px;
-  padding:5px; margin-bottom:56px;
-  font-family:var(--sans); font-weight:600;
-  font-size:clamp(18px,2.28vw,32.9px);
-  color:var(--navy);
-}
-.products-heading-pill span{ padding:7px 20px; }
-.products-heading-pill .pill-highlight{ background:var(--navy); color:#fff; border-radius:999px; }
+.products-heading-pill{ position:relative; z-index:1; display:block; width:clamp(230px,25.6vw,368px); margin:0 auto 56px; }
+
+
 
 .products-grid{ position:relative; z-index:1; max-width:var(--container); margin:0 auto; display:flex; flex-direction:column; gap:4px; }
 .pill-row{ display:grid; grid-template-columns:repeat(4,1fr); gap:3.33%; }
@@ -364,9 +383,9 @@ button{ font-family:inherit; cursor:pointer; }
   gap:.5em; padding:14px;
   transition:transform .25s ease, background .25s ease;
 }
-.pill-card:hover{ transform:translateY(-6px); background:var(--navy); }
+.pill-card:hover{ transform:translateY(-8px) scale(1.02); background:var(--navy); box-shadow:0 16px 30px rgba(36,69,105,.28); }
 .pill-name{ font-family:var(--serif); font-weight:700; font-size:clamp(15px,2.22vw,32px); line-height:1.08; }
-.pill-icon{ width:clamp(14px,1.7vw,24px); height:auto; color:#fff; }
+.pill-icon{ width:clamp(16px,2vw,28px); height:auto; }
 
 .products-footer-text{
   position:relative; z-index:1;
@@ -393,13 +412,14 @@ button{ font-family:inherit; cursor:pointer; }
 .t-slide{ display:none; }
 .t-slide.is-active{ display:block; }
 .t-slide h3{ color:var(--navy); font-weight:700; font-size:var(--fs-quote); line-height:1.04; }
-.stars{ color:var(--star); font-size:clamp(18px,2.2vw,32px); letter-spacing:6px; margin:22px 0 18px; }
+.stars{ display:block; width:clamp(120px,13vw,190px); margin:22px auto 18px; }
 .t-author{ font-size:var(--fs-bar); font-weight:500; color:var(--gold-dark); }
 .t-arrow{
+  padding:0; background:none;
   position:absolute; bottom:30px;
   width:clamp(34px,3.3vw,48px); aspect-ratio:1;
-  border-radius:50%; background:var(--gold-dark); color:#fff; border:none;
-  font-size:.9rem; display:flex; align-items:center; justify-content:center;
+  border:none; display:flex; align-items:center; justify-content:center;
+  transition:transform .2s ease;
 }
 .t-arrow--prev{ right:88px; }
 .t-arrow--next{ right:32px; }
@@ -499,7 +519,9 @@ button{ font-family:inherit; cursor:pointer; }
   .about-text{ align-items:flex-start; padding:26px 0 40px; }
   .about-text .btn{ margin-left:0; }
   .icon-strip-left{ min-height:0; margin-bottom:16px; }
-  .brand-badge-lg{ position:static; }
+  /* relative, not static: the ring is an absolute ::before and would
+     otherwise escape to .icon-strip and stretch across it */
+  .brand-badge-lg{ position:relative; top:auto; left:auto; width:120px; }
 }
 @media (max-width:900px){
   .gallery-row,.ingredients-row,.real-butter-inner{ grid-template-columns:1fr; }
@@ -583,3 +605,9 @@ button{ font-family:inherit; cursor:pointer; }
   .real-butter{ padding-bottom:40px; }
   .faq{ margin-top:-60px; }
 }
+
+.t-arrow img{ width:100%; height:100%; }
+.t-arrow:hover{ transform:scale(1.12); }
+.footer-wordmark{ display:block; width:clamp(150px,17vw,245px); margin-bottom:22px; }
+.inline-mark{ display:inline-block; width:clamp(30px,3.2vw,46px); vertical-align:-.12em; }
+.wavy-underline{ display:block; width:clamp(200px,23vw,330px); margin:14px auto 0; }

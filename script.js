@@ -74,7 +74,7 @@ window.addEventListener('resize', () => {
 });
 
 // Testimonial carousel — auto-advances every 4s, arrows still work
-const AUTOPLAY_MS = 4000;
+const AUTOPLAY_MS = 3000;
 const slides = document.querySelectorAll('.t-slide');
 const carousel = document.querySelector('.testimonial-card');
 let activeSlide = 0;
