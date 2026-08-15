@@ -185,6 +185,26 @@ button{ font-family:inherit; cursor:pointer; }
 .veg-mark{ position:absolute; top:2%; right:2%; width:clamp(26px,2.6vw,38px); }
 .veg-mark--static{ position:absolute; top:auto; right:10px; bottom:10px; width:clamp(24px,2.4vw,34px); }
 
+/* Larger background veg mark (matches PDF placement) */
+.veg-mark--bg{
+  position:absolute;
+  top:8%;
+  right:6%;
+  width:clamp(46px,6vw,84px);
+  z-index:3; /* sits above the ghost/background type */
+  pointer-events:none;
+  transform:translateZ(0);
+  box-shadow:0 8px 18px rgba(36,69,105,.12);
+  background:#fff; border-radius:8px; padding:.35em;
+}
+
+@media (max-width:900px){
+  .veg-mark--bg{ top:22%; right:6%; width:clamp(36px,9vw,64px); }
+}
+@media (max-width:480px){
+  .veg-mark--bg{ top:18%; right:8%; width:54px; }
+}
+
 .hero-cta{
   position:relative;
   margin-top:16px;
