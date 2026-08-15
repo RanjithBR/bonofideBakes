@@ -156,7 +156,7 @@ button{ font-family:inherit; cursor:pointer; }
 /* ============================================================
    HERO
    ============================================================ */
-.hero{ position:relative; padding:0 0 52px; text-align:center; overflow:hidden; }
+.hero{ position:relative; padding:0 0 83px; text-align:center; overflow:hidden; }
 .hero-ghost{
   position:absolute; top:0; left:0; right:0; bottom:0;
   z-index:0; pointer-events:none; overflow:hidden;
@@ -174,8 +174,14 @@ button{ font-family:inherit; cursor:pointer; }
 /* No z-index: it would create a stacking context and stop the photo
    blending with the ghost type behind it. */
 .hero-content{ position:relative; max-width:var(--wide); margin:0 auto; padding-top:11.3vw; }
-.hero-image-wrap{ position:relative; display:block; width:100%; max-width:65vw; margin:0 auto; }
-.hero-image{ width:100%; mix-blend-mode:multiply; }  /* drops white studio bg */
+/* Asset 3.png carries a lot of transparent padding (content is
+   3904x2015 inside 4219x3535), so crop to the artwork in CSS rather
+   than letting the empty space inflate the hero. */
+.hero-image-wrap{
+  position:relative; display:block; width:100%; max-width:65vw;
+  margin:0 auto; aspect-ratio:3904/2015; overflow:hidden;
+}
+.hero-image{ position:absolute; width:108.07%; left:-2.28%; top:-51.07%; height:auto; }
 .veg-mark{ position:absolute; top:2%; right:2%; width:clamp(26px,2.6vw,38px); }
 .veg-mark--static{ position:absolute; top:auto; right:10px; bottom:10px; width:clamp(24px,2.4vw,34px); }
 
@@ -195,20 +201,12 @@ button{ font-family:inherit; cursor:pointer; }
 }
 .icon-strip-left{ position:relative; min-height:150px; }
 .brand-badge-lg{
-  /* block, not inline: the width must still hold once the badge goes
-     position:static in the stacked layouts below 1080px */
-  display:block;
-  position:absolute; top:-52px; left:16px;
-  width:148px; aspect-ratio:1; z-index:3;
+  /* Asset 18 already includes the navy ring; gold disc is 91.2% of the
+     box inset 4.3%, so a 162px box puts a 148px disc at the design spot */
+  position:absolute; left:-69px; top:-27px;
+  width:162px; aspect-ratio:1; z-index:3;
 }
 .brand-badge-lg img{ width:100%; height:100%; border-radius:50%; }
-/* Thin navy ring: design draws it as a larger 170px circle with the
-   148px gold disc sitting toward its upper-right. */
-.brand-badge-lg::before{
-  content:""; position:absolute;
-  inset:-11px -6px -11px -16px;
-  border:1.6px solid var(--navy); border-radius:50%;
-}
 /* Badge artwork lifted from the design, presented as a continuous
    marquee. Rows keep the design's 100px badge and overall block height;
    they simply scroll instead of wrapping. */
@@ -231,8 +229,11 @@ button{ font-family:inherit; cursor:pointer; }
 }
 .feature{ width:100px; flex:none; padding:4px; }
 /* blue highlight ring */
-.feature img{ border-radius:50%; border:1.5px solid transparent; transition:border-color .25s ease, transform .25s ease; }
-.feature:hover img{ border-color:var(--navy); transform:scale(1.06); }
+.feature img{
+  border-radius:50%;
+  transition:transform .25s ease, filter .25s ease;
+}
+.feature:hover img{ transform:scale(1.08); filter:drop-shadow(0 6px 12px rgba(36,69,105,.28)); }
 .feature img{ width:100%; height:auto; }
 
 /* No unattended motion when the OS asks for reduced motion */
@@ -253,14 +254,16 @@ button{ font-family:inherit; cursor:pointer; }
 }
 /* keep the fixed-width children from blowing out the 1fr track */
 .about-inner > *{ min-width:0; }
+.icon-strip-left{ min-height:150px; }
 /* One continuous photo rising out of the hero. Design places it at
    x218..736, y907..1597 - i.e. 518x690, lifted 270px above the navy. */
-.about-image{
+.about-media{
+  position:relative;
   width:518px; max-width:100%;
   margin:-270px 0 0 78px;
-  border-radius:50px;
   align-self:start;
 }
+.about-image{ width:100%; border-radius:50px; }
 .about-text{ padding:42px 0 0 0; }
 /* design measure is 580px - wider than its grid track, so it must
    be free to overflow into the full-bleed navy band */
@@ -297,16 +300,26 @@ button{ font-family:inherit; cursor:pointer; }
 .purpose-heading-2{ color:var(--navy); font-size:var(--fs-purpose); line-height:.97; margin-top:10px; }
 .wavy-underline{ color:var(--gold); display:block; margin:14px auto 0; }
 
-.gallery-row{ display:grid; grid-template-columns:1.06fr 1fr; gap:36px; margin-top:20px; text-align:left; }
-.gallery-col{ position:relative; }
-.gallery-img{ width:100%; object-fit:cover; }
-.gallery-col--tall .gallery-img{ aspect-ratio:1/1.05; }
-.gallery-cta{ position:absolute; right:22px; top:45%; }
-.gallery-caption{ margin-top:18px; font-size:var(--fs-label); font-weight:500; letter-spacing:.02em; }
-.gallery-code{ position:relative; margin-bottom:24px; }
-.gallery-code .gallery-img{ aspect-ratio:1.4/1; }
-.gallery-flags{ position:relative; }
-.gallery-flags .gallery-img{ aspect-ratio:1.35/1; }
+/* Gallery - design overlaps the three photos diagonally.
+   Visible extents on the artboard (not the padded placement rects):
+     bread   x218 y2312 521x566     crumble x748 y2312 331x276
+     brownie x905 y2614 305x264     captions y2889, veg mark x1151 y2528
+   Block origin y2312, height 603, all relative to the 992 container. */
+.gallery-row{ position:relative; width:100%; padding-bottom:60.8%; margin-top:20px; }
+.g-img{ position:absolute; object-fit:cover; }
+.g-bread  { left:-0.60%; top:0;      width:52.52%; aspect-ratio:521/566; }
+.g-crumble{ left:52.82%; top:0;      width:33.37%; aspect-ratio:331/276; }
+.g-brownie{ left:68.65%; top:50.08%; width:30.75%; aspect-ratio:305/264; }
+.g-veg    { position:absolute; left:93.45%; top:35.82%; width:5.85%; }
+.g-cta    { position:absolute; left:43.95%; top:61.2%; }
+.g-code{
+  position:absolute; left:84.48%; top:0;
+  writing-mode:vertical-rl; transform:rotate(180deg);
+  font-size:var(--fs-label); font-weight:500; white-space:nowrap;
+}
+.g-cap{ position:absolute; top:95.69%; font-size:var(--fs-label); font-weight:500; white-space:nowrap; }
+.g-cap--left { left:-0.60%; }
+.g-cap--right{ left:72.28%; }
 
 /* ============================================================
    VALUES / INGREDIENTS
@@ -322,17 +335,17 @@ button{ font-family:inherit; cursor:pointer; }
 }
 .ingredients-heading strong{ font-weight:600; }
 .ingredients-row{
-  display:grid; grid-template-columns:300px minmax(0,535px);
-  justify-content:space-between; gap:40px; margin-top:18px;
-  width:min(1150px, 100vw - 48px);
+  display:grid; grid-template-columns:297px minmax(0,540px);
+  column-gap:318px; margin-top:18px; margin-left:-6px;
+  width:min(1155px, 100vw - 48px);
 }
-.ingredients-swatches{ display:flex; gap:20px; margin-bottom:28px; }
-.ingredients-swatches img{ width:140px; aspect-ratio:1/1.33; object-fit:cover; }
+.ingredients-swatches{ display:flex; gap:21px; margin-bottom:28px; }
+.ingredients-swatches img{ width:138px; height:auto; }
 .ingredients-note{ font-size:var(--fs-body); font-weight:500; line-height:1.19; color:var(--gold-dark); margin-bottom:30px; }
 .ingredients-right p{ font-size:var(--fs-body); font-weight:400; line-height:1.19; color:#242424; max-width:535px; }
-.ingredients-photos{ display:flex; align-items:flex-end; gap:22px; }
-.ingredients-photos img:first-child{ width:232px; aspect-ratio:1/1.33; object-fit:cover; }
-.ingredients-photos img:last-child{ width:128px; aspect-ratio:1/1.33; object-fit:cover; }
+.ingredients-photos{ display:flex; align-items:flex-start; gap:20px; }
+.ingredients-photos img:first-child{ width:233px; height:auto; }
+.ingredients-photos img:last-child{ width:125px; height:auto; }
 
 /* ---- WhatsApp banner (990x286, radius ~28) ---- */
 .whatsapp-banner{
@@ -425,29 +438,33 @@ button{ font-family:inherit; cursor:pointer; }
 .t-arrow--next{ right:32px; }
 
 /* ============================================================
-   REAL BUTTER - design places one 880x1172 composition at x266..1146
-   with the copy overlaid on its right, badge and chefs on top.
+   REAL BUTTER - design measurements from the artboard:
+   composition x334..1137 (803w), copy at x881, badge at x459 y6230.
    ============================================================ */
-.real-butter{ position:relative; background:var(--cream); padding:60px 0 0; overflow-x:clip; }
-.rb-stage{ position:relative; width:min(880px, 92vw); margin:0 auto; }
-.rb-jar{ width:100%; mix-blend-mode:multiply; }
-.brand-badge{
-  position:absolute; left:20.7%; top:19.5%;
-  width:13%; aspect-ratio:1; border-radius:50%;
-  background:var(--gold-dark); border:3px solid var(--cream);
-  display:flex; align-items:center; justify-content:center; color:#fff; z-index:2;
+.real-butter{ position:relative; background:var(--cream); padding:70px 0 60px; overflow:hidden; }
+/* millet-stalk watermark - design crops one at each edge, y6023..7112 */
+.rb-pattern{ position:absolute; top:0; width:59%; height:auto; z-index:0; pointer-events:none; }
+.rb-pattern--l{ left:-26%; }
+.rb-pattern--r{ left:75%; }
+.real-butter-inner{ position:relative; z-index:1; max-width:var(--container); margin:0 auto; }
+.rb-stage{ position:relative; width:81%; margin-left:11%; }
+.rb-jar{ width:100%; display:block; }
+.rb-badge{ position:absolute; left:15.6%; top:17.6%; width:16.9%; z-index:2; }
+.rb-badge img{ width:100%; display:block; }
+.real-butter-text{
+  position:absolute; left:68.1%; top:38.2%; z-index:3;
+  padding-left:18px; border-left:5px solid var(--navy);
 }
-.ill--chef-left{ position:absolute; left:8%;  top:36%; width:17%; z-index:2; }
-.ill--chef-right{ position:absolute; left:70%; top:52%; width:27%; z-index:2; }
-.real-butter-text{ position:absolute; left:69.9%; top:36%; z-index:3; }
-.rb-rule{ display:block; width:5px; height:52px; background:var(--navy); margin-bottom:14px; }
-.real-butter-text h3{ color:var(--navy); font-weight:700; font-size:var(--fs-rb); line-height:1.0; white-space:nowrap; }
+.real-butter-text h3{
+  color:var(--navy); font-weight:700;
+  font-size:var(--fs-rb); line-height:1.0; white-space:nowrap;
+}
 
 /* ============================================================
    FAQ
    ============================================================ */
 .faq{ background:var(--cream); }
-.faq{ max-width:none; padding:70px 0 90px; margin-top:-300px; position:relative; z-index:2; overflow-x:clip; }
+.faq{ max-width:none; padding:70px 0 90px; margin-top:0; position:relative; z-index:2; overflow-x:clip; }
 .faq > *{ max-width:var(--container); margin-left:auto; margin-right:auto; }
 .faq-head{
   display:flex; align-items:flex-end; justify-content:space-between; gap:20px; flex-wrap:wrap;
@@ -514,14 +531,15 @@ button{ font-family:inherit; cursor:pointer; }
 }
 @media (max-width:1080px){
   .icon-strip,.about-inner{ grid-template-columns:1fr; }
-  .about-image{ width:100%; max-width:518px; margin:-120px auto 0; }
+  .about-media{ width:100%; max-width:518px; margin:-120px auto 0; }
+  .brand-badge-lg{ left:-14px; top:-34px; width:120px; }
   .about-text p{ width:100%; max-width:100%; }
   .about-text{ align-items:flex-start; padding:26px 0 40px; }
   .about-text .btn{ margin-left:0; }
   .icon-strip-left{ min-height:0; margin-bottom:16px; }
   /* relative, not static: the ring is an absolute ::before and would
      otherwise escape to .icon-strip and stretch across it */
-  .brand-badge-lg{ position:relative; top:auto; left:auto; width:120px; }
+  .brand-badge-lg{ position:relative; top:auto; left:auto; width:132px; }
 }
 @media (max-width:900px){
   .gallery-row,.ingredients-row,.real-butter-inner{ grid-template-columns:1fr; }
@@ -555,7 +573,9 @@ button{ font-family:inherit; cursor:pointer; }
 @media (max-width:480px){
 
   .whatsapp-banner{ padding:26px 20px; }
-  .about-image{ margin:-60px auto 0; border-radius:26px; }
+  .about-media{ margin:-60px auto 0; }
+  .about-image{ border-radius:26px; }
+  .brand-badge-lg{ left:-8px; top:-26px; width:92px; }
 }
 
 /* ============================================================
@@ -570,21 +590,13 @@ button{ font-family:inherit; cursor:pointer; }
 
 .whatsapp-banner{ position:relative; overflow:hidden; align-items:flex-end; justify-content:space-between; gap:0; padding:0 24px; }
 .whatsapp-banner{ height:286px; }
-.ill--wa-hand{ height:82%; width:auto; align-self:flex-end; flex:none; }
+.ill--wa-hand{ height:95%; width:auto; align-self:flex-end; flex:none; }
 .ill--wa-girl{ height:100%; width:auto; align-self:flex-end; flex:none; }
 .whatsapp-center{ display:flex; flex-direction:column; align-items:center; gap:18px; padding:0 8px 34px; flex:1 1 auto; }
 
 
 .faq{ position:relative; }
 .ill--chef-whisk{ right:0; bottom:40px; width:clamp(120px,22vw,320px); }
-.btn-scribble{ position:relative; display:inline-flex; }
-.btn-scribble::before{
-  content:""; position:absolute; left:-13%; top:-46%;
-  width:126%; height:196%;
-  background:url("Asset/ill-scribble.png") center/100% 100% no-repeat;
-  pointer-events:none; z-index:0;
-}
-.btn-scribble .btn{ position:relative; z-index:1; }
 .btn-break{ flex-basis:100%; height:0; }
 .faq-buttons{ position:relative; z-index:1; }
 
@@ -603,7 +615,7 @@ button{ font-family:inherit; cursor:pointer; }
   .real-butter-text h3{ white-space:normal; }
   .rb-rule{ margin:0 auto 14px; }
   .real-butter{ padding-bottom:40px; }
-  .faq{ margin-top:-60px; }
+
 }
 
 .t-arrow img{ width:100%; height:100%; }
@@ -611,3 +623,19 @@ button{ font-family:inherit; cursor:pointer; }
 .footer-wordmark{ display:block; width:clamp(150px,17vw,245px); margin-bottom:22px; }
 .inline-mark{ display:inline-block; width:clamp(30px,3.2vw,46px); vertical-align:-.12em; }
 .wavy-underline{ display:block; width:clamp(200px,23vw,330px); margin:14px auto 0; }
+
+@media (max-width:900px){
+  .ingredients-row{ grid-template-columns:1fr; column-gap:0; row-gap:40px; margin-left:0; }
+  /* gallery collapses to a simple stack on small screens */
+  .gallery-row{ padding-bottom:0; display:grid; gap:18px; }
+  .g-img,.g-cta,.g-cap,.g-veg,.g-code{ position:static; width:100%; }
+  .g-veg{ width:34px; justify-self:end; }
+  .g-cta{ width:max-content; }
+  .g-code{ display:none; }
+}
+
+/* sparkle marks - design places them at x884 y3716 and x541 y3868 */
+.wa-spark{ position:absolute; z-index:1; }
+.wa-spark--a{ left:67.2%; top:14.2%; width:3.8%; }
+.wa-spark--b{ left:32.4%; top:68.3%; width:3.0%; }
+@media (max-width:900px){ .wa-spark{ display:none; } }
