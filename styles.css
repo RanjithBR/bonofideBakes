@@ -392,11 +392,24 @@ button{ font-family:inherit; cursor:pointer; }
 .ticker-track span{ font-size:clamp(18px,2.36vw,34px); font-weight:600; color:var(--navy); letter-spacing:-.03em; }
 @keyframes marquee{ from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
+.cream-zone{ position:relative; background:var(--cream); overflow-x:clip; }
+/* Millet-stalk watermark (Asset 62). Design runs it from behind the
+   testimonial card down to just above the FAQ, stems on-page at x117
+   and x1275, cropped hard at both edges. */
+.cz-pattern{
+  position:absolute; top:1450px; width:81.25%; height:auto;
+  z-index:0; pointer-events:none; opacity:.44;
+}
+.cz-pattern--l{ left:-32.5%; }
+.cz-pattern--r{ left:47.9%; }
+.real-butter-inner,.rb-stage{ position:relative; z-index:1; }
+@media (max-width:900px){ .cz-pattern{ top:900px; opacity:.28; } }
+
 /* ============================================================
    WHAT WE BAKE  — design: pill 224x320, pitch 257/323.5,
    rows of 4 / 3 (offset half a pitch) / 4
    ============================================================ */
-.products{ position:relative; background:var(--cream); padding:70px 0 90px; text-align:center; overflow:hidden; }
+.products{ position:relative; z-index:1; background:transparent; padding:70px 0 90px; text-align:center; overflow:hidden; }
 .products-deco{ position:absolute; top:150px; width:clamp(150px,17vw,250px); aspect-ratio:1; object-fit:cover; border-radius:50%; mix-blend-mode:multiply; }
 .products-deco--left{ left:-70px; }
 .products-deco--right{ right:-70px; }
@@ -430,9 +443,9 @@ button{ font-family:inherit; cursor:pointer; }
 
 /* ---- Testimonial (991x415 card) ---- */
 .testimonial-wrap{ position:relative; max-width:var(--container); margin:96px auto 0; }
-.testimonial-deco{ position:absolute; width:clamp(90px,10vw,150px); top:-26px; z-index:0; mix-blend-mode:multiply; }
-.testimonial-deco--left{ left:-70px; transform:rotate(-8deg); }
-.testimonial-deco--right{ right:-70px; transform:rotate(10deg); }
+.testimonial-deco{ position:absolute; z-index:2; }
+.testimonial-deco--left{ left:-89px; top:-10px; width:225px; }
+.testimonial-deco--right{ right:-90px; top:36px; width:190px; }
 .testimonial-card{
   position:relative; z-index:1;
   background:#fff; border-radius:20px;
@@ -445,7 +458,8 @@ button{ font-family:inherit; cursor:pointer; }
 .t-slide{ display:none; }
 .t-slide.is-active{ display:block; }
 .t-slide h3{ color:var(--navy); font-weight:700; font-size:var(--fs-quote); line-height:1.04; }
-.stars{ display:block; width:clamp(120px,13vw,190px); margin:22px auto 18px; }
+.stars{ display:flex; justify-content:center; gap:4px; width:180px; margin:22px auto 18px; }
+.stars img{ width:32px; height:auto; }
 .t-author{ font-size:var(--fs-bar); font-weight:500; color:var(--gold-dark); }
 .t-arrow{
   padding:0; background:none;
@@ -461,11 +475,7 @@ button{ font-family:inherit; cursor:pointer; }
    REAL BUTTER - design measurements from the artboard:
    composition x334..1137 (803w), copy at x881, badge at x459 y6230.
    ============================================================ */
-.real-butter{ position:relative; background:var(--cream); padding:70px 0 60px; overflow:hidden; }
-/* millet-stalk watermark - design crops one at each edge, y6023..7112 */
-.rb-pattern{ position:absolute; top:0; width:59%; height:auto; z-index:0; pointer-events:none; }
-.rb-pattern--l{ left:-26%; }
-.rb-pattern--r{ left:75%; }
+.real-butter{ position:relative; background:transparent; padding:70px 0 60px; }
 .real-butter-inner{ position:relative; z-index:1; max-width:var(--container); margin:0 auto; }
 .rb-stage{ position:relative; width:81%; margin-left:11%; }
 .rb-jar{ width:100%; display:block; }
